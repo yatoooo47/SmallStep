@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}タスク承認一覧{% endblock %}
+
+{% block content %}
+<h1 class="h3 mb-4 text-gray-800">タスク承認一覧</h1>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>タスク名</th>
+            <th>実行者</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+        <tr class="{% if task.is_completed %}task-completed{% endif %}">
+            <td>{{ task.task_name }}</td>
+            <td>{{ task.executor_name }}</td>
+            <td>
+                <a href="{{ url_for('task_approval_detail', task_id=task.task_id) }}" class="btn btn-primary">詳細を見る</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

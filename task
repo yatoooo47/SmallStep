@@ -1,0 +1,118 @@
+# 初回起動時にデータベースを作成し、初期タスクを登録
+def initialize_tasks():
+    tasks = [
+        # レベル1タスク
+        {"task_level": 1, "task_order": 1, "task_name": "起床後に顔を洗う"},
+        {"task_level": 1, "task_order": 2, "task_name": "部屋の窓を開けて換気をする"},
+        {"task_level": 1, "task_order": 3, "task_name": "5分間の軽いストレッチを行う"},
+
+        # レベル2タスク
+        {"task_level": 2, "task_order": 1, "task_name": "洗濯物を一回回す"},
+        {"task_level": 2, "task_order": 2, "task_name": "10分間の散歩をする"},
+        {"task_level": 2, "task_order": 3, "task_name": "次の日の服を準備する"},
+        {"task_level": 2, "task_order": 4, "task_name": "水を1リットル飲む"},
+        {"task_level": 2, "task_order": 5, "task_name": "朝食を食べる"},
+
+        # レベル3タスク
+        {"task_level": 3, "task_order": 1, "task_name": "近所のスーパーまで歩く"},
+        {"task_level": 3, "task_order": 2, "task_name": "部屋の1箇所を掃除する"},
+        {"task_level": 3, "task_order": 3, "task_name": "手帳やスマホに翌日の予定を書き込む"},
+        {"task_level": 3, "task_order": 4, "task_name": "20分間読書をする"},
+        {"task_level": 3, "task_order": 5, "task_name": "ゴミを出す"},
+        {"task_level": 3, "task_order": 6, "task_name": "一日中、一定の時間ごとにストレッチをする"},
+        {"task_level": 3, "task_order": 7, "task_name": "短い瞑想をする（5分）"},
+
+        # レベル4タスク
+        {"task_level": 4, "task_order": 1, "task_name": "友人や家族に1通のメッセージを送る"},
+        {"task_level": 4, "task_order": 2, "task_name": "冷蔵庫の中を整理する"},
+        {"task_level": 4, "task_order": 3, "task_name": "駅やバス停まで歩いて行く"},
+        {"task_level": 4, "task_order": 4, "task_name": "部屋の模様替えの計画を立てる"},
+        {"task_level": 4, "task_order": 5, "task_name": "軽い運動（15分）"},
+        {"task_level": 4, "task_order": 6, "task_name": "自炊する（簡単な食事でもOK）"},
+        {"task_level": 4, "task_order": 7, "task_name": "ToDoリストを作成する"},
+        {"task_level": 4, "task_order": 8, "task_name": "本を1章読む"},
+        {"task_level": 4, "task_order": 9, "task_name": "30分間スクリーンタイムを減らす"},
+
+        # レベル5タスク
+        {"task_level": 5, "task_order": 1, "task_name": "近所のカフェや公共施設に行く"},
+        {"task_level": 5, "task_order": 2, "task_name": "職場や学校に関連する情報を1件調べる"},
+        {"task_level": 5, "task_order": 3, "task_name": "1日のスケジュールを立てる"},
+        {"task_level": 5, "task_order": 4, "task_name": "簡単なエクササイズを30分行う"},
+        {"task_level": 5, "task_order": 5, "task_name": "昨日やったタスクの進捗を振り返る"},
+        {"task_level": 5, "task_order": 6, "task_name": "10分間、自己成長に関する動画や記事を視聴する"},
+        {"task_level": 5, "task_order": 7, "task_name": "野菜を1種類使って料理する"},
+        {"task_level": 5, "task_order": 8, "task_name": "近所を30分散歩する"},
+        {"task_level": 5, "task_order": 9, "task_name": "1時間スマホやPCの使用を控える"},
+        {"task_level": 5, "task_order": 10, "task_name": "日記に自分の感想を書く"},
+
+        # レベル6タスク
+        {"task_level": 6, "task_order": 1, "task_name": "友人や知り合いと電話で会話する"},
+        {"task_level": 6, "task_order": 2, "task_name": "自分の興味のある分野に関する本や記事を30分読む"},
+        {"task_level": 6, "task_order": 3, "task_name": "1週間のメニューを考える"},
+        {"task_level": 6, "task_order": 4, "task_name": "お金を使わずに楽しめる活動を1つ実践する"},
+        {"task_level": 6, "task_order": 5, "task_name": "外出して新しい場所を訪れる"},
+        {"task_level": 6, "task_order": 6, "task_name": "1時間自分の趣味に集中する"},
+        {"task_level": 6, "task_order": 7, "task_name": "週の目標を3つ設定する"},
+        {"task_level": 6, "task_order": 8, "task_name": "予定の確認と更新をする"},
+        {"task_level": 6, "task_order": 9, "task_name": "新しい料理に挑戦する"},
+        {"task_level": 6, "task_order": 10, "task_name": "1日の終わりにリラックスする時間を作る"},
+
+        # レベル7タスク
+        {"task_level": 7, "task_order": 1, "task_name": "求人情報を1件調べる"},
+        {"task_level": 7, "task_order": 2, "task_name": "図書館や公園などで新しい場所を訪れる"},
+        {"task_level": 7, "task_order": 3, "task_name": "自己啓発のために新しいスキルや趣味を始める"},
+        {"task_level": 7, "task_order": 4, "task_name": "1時間、積極的に運動する"},
+        {"task_level": 7, "task_order": 5, "task_name": "3つの短期目標を立てる"},
+        {"task_level": 7, "task_order": 6, "task_name": "1つのチャリティーやボランティア活動について調べる"},
+        {"task_level": 7, "task_order": 7, "task_name": "知り合いと昼食やお茶に行く"},
+        {"task_level": 7, "task_order": 8, "task_name": "次の週のタスク計画を作る"},
+        {"task_level": 7, "task_order": 9, "task_name": "自分のスキルに関連するオンラインコースを調べる"},
+        {"task_level": 7, "task_order": 10, "task_name": "自己紹介を練習する（鏡の前で）"},
+
+        # レベル8タスク
+        {"task_level": 8, "task_order": 1, "task_name": "就職活動の計画を立てる"},
+        {"task_level": 8, "task_order": 2, "task_name": "履歴書や職務経歴書の書き方を調べる"},
+        {"task_level": 8, "task_order": 3, "task_name": "近所の施設を1つ訪れる"},
+        {"task_level": 8, "task_order": 4, "task_name": "新しいレシピに挑戦して食事を作る"},
+        {"task_level": 8, "task_order": 5, "task_name": "1時間以上の運動を行う"},
+        {"task_level": 8, "task_order": 6, "task_name": "過去1週間のタスク進捗を振り返る"},
+        {"task_level": 8, "task_order": 7, "task_name": "知人に連絡を取って進展を共有する"},
+        {"task_level": 8, "task_order": 8, "task_name": "自分のスキルや興味に関連する講座やイベントを探す"},
+        {"task_level": 8, "task_order": 9, "task_name": "お金を使わずに楽しむ方法を3つ考える"},
+        {"task_level": 8, "task_order": 10, "task_name": "朝早く起きて、少なくとも3時間集中して活動する"},
+        {"task_level": 8, "task_order": 11, "task_name": "自分の考えや感情を整理するために日記を書く"},
+
+        # レベル9タスク
+        {"task_level": 9, "task_order": 1, "task_name": "職業訓練やセミナーに申し込む"},
+        {"task_level": 9, "task_order": 2, "task_name": "将来のキャリア計画を立てる"},
+        {"task_level": 9, "task_order": 3, "task_name": "2時間の集中作業を行う"},
+        {"task_level": 9, "task_order": 4, "task_name": "知り合いとプロフェッショナルな話題について話す"},
+        {"task_level": 9, "task_order": 5, "task_name": "模擬面接の練習をする"},
+        {"task_level": 9, "task_order": 6, "task_name": "週次のタスクの進捗報告を作成する"},
+        {"task_level": 9, "task_order": 7, "task_name": "SNSやLinkedInで専門分野に関するアカウントをフォローする"},
+        {"task_level": 9, "task_order": 8, "task_name": "一日中、健康的な食事を心がける"},
+        {"task_level": 9, "task_order": 9, "task_name": "自分の短期目標を振り返る"},
+        {"task_level": 9, "task_order": 10, "task_name": "週の計画を再評価し、修正する"},
+        {"task_level": 9, "task_order": 11, "task_name": "自分を褒めるためにリラックスタイムを取る"},
+        {"task_level": 9, "task_order": 12, "task_name": "新しい趣味を深掘りする"},
+
+        # レベル10タスク
+        {"task_level": 10, "task_order": 1, "task_name": "1日中規則正しい生活を心がける"},
+        {"task_level": 10, "task_order": 2, "task_name": "求人に1件応募する"},
+        {"task_level": 10, "task_order": 3, "task_name": "2時間以上の集中作業を行う"},
+        {"task_level": 10, "task_order": 4, "task_name": "模擬面接を実際にやってみる"},
+        {"task_level": 10, "task_order": 5, "task_name": "運動を1時間以上行う"},
+        {"task_level": 10, "task_order": 6, "task_name": "リーダーシップに関する記事や動画を視聴する"},
+        {"task_level": 10, "task_order": 7, "task_name": "将来のキャリア目標を再確認し、細かく計画を練る"},
+        {"task_level": 10, "task_order": 8, "task_name": "誰かとコラボレーションするプロジェクトを考える"},
+        {"task_level": 10, "task_order": 9, "task_name": "ネットワーキングのための人と繋がる（オンライン/オフライン）"},
+        {"task_level": 10, "task_order": 10, "task_name": "自分のスキルや知識を他人に教える"},
+        {"task_level": 10, "task_order": 11, "task_name": "週の達成度を高く維持するために新しいチャレンジを見つける"},
+        {"task_level": 10, "task_order": 12, "task_name": "自分の成果を具体的に振り返り、次のステップを決める"},
+        {"task_level": 10, "task_order": 13, "task_name": "今週の全てのタスクを完了する"},
+    ]
+    for task_data in tasks:
+        if not Task.query.filter_by(task_level=task_data["task_level"], task_order=task_data["task_order"]).first():
+            new_task = Task(**task_data)
+            db.session.add(new_task)
+    db.session.commit()

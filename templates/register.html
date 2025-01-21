@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新規登録</title>
+    <!-- SB Admin 2 CSS -->
+    <link href="{{ url_for('static', filename='css/sb-admin-2.css') }}" rel="stylesheet">
+</head>
+<body class="bg-gradient-primary">
+
+    <div class="container">
+
+        <!-- 登録カード -->
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-8 col-md-9">
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">新規登録</h1>
+                        </div>
+                        <form action="{{ url_for('register') }}" method="post">
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-user"
+                                       name="name" placeholder="ユーザー名" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control form-control-user"
+                                       name="password" placeholder="パスワード" required>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" name="user_kind">
+                                    <option value="1">実行者</option>
+                                    <option value="2">承認者</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-user btn-block">登録</button>
+                        </form>
+                        <hr>
+                        <div class="text-center">
+                            <a class="small" href="{{ url_for('login') }}">ログイン画面に戻る</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SB Admin 2 JavaScript -->
+    <script src="{{ url_for('static', filename='js/sb-admin-2.js') }}"></script>
+</body>
+</html>

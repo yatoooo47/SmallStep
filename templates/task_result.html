@@ -1,0 +1,7 @@
+<h1>タスク処理結果</h1>
+{% if status == 'approved' %}
+    <p>タスクが承認されました。</p>
+{% elif status == 'rejected' %}
+    <p>タスクが却下されました。</p>
+{% endif %}
+<a href="{{ url_for('approval_tasks') }}">戻る</a>

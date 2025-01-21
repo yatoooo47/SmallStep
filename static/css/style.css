@@ -1,0 +1,164 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.task-container {
+    margin-top: 20px;
+}
+
+.task-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.task-table th,
+.task-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.task-table th {
+    background-color: #f8f8f8;
+}
+
+.task-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    color: white;
+}
+
+.btn-success {
+    background-color: #4CAF50;
+}
+
+.btn-success:hover {
+    background-color: #45a049;
+}
+
+.btn-danger {
+    background-color: #f44336;
+}
+
+.btn-danger:hover {
+    background-color: #e31b0c;
+}
+
+.task-completed {
+    opacity: 0.5;
+    text-decoration: line-through;
+}
+
+.alert-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1050;
+}
+
+/* サイドバーの固定 */
+#sidebarMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #343a40;
+    color: white;
+    z-index: 1000;
+    overflow-y: auto; /* コンテンツが多い場合にスクロールを許可 */
+    padding-top: 20px;
+}
+
+/* サイドバー内のリンク */
+#sidebarMenu .nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+#sidebarMenu .nav-link:hover {
+    background-color: #495057;
+    color: white;
+}
+
+/* メインコンテンツの位置調整 */
+#content-wrapper {
+    margin-left: 250px; /* サイドバーの幅分だけ左に余白を追加 */
+    padding: 20px;
+}
+
+/* アラートのスタイル */
+.alert-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1050;
+}
+
+/* テーブルのスタイル */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f8f9fa;
+    text-align: left;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+nav.topbar {
+    position: fixed; /* 固定する */
+    top: 0;
+    left: 0;
+    width: 100%; /* 横幅を画面全体に広げる */
+    z-index: 1030; /* 他の要素より前面に表示 */
+}
+
+#sidebarMenu {
+    position: fixed; /* サイドバーを固定 */
+    top: 0;
+    left: 0;
+    width: 250px; /* サイドバーの幅 */
+    height: 100%; /* 高さを画面全体に広げる */
+    z-index: 1020; /* トップバーより低いが、コンテンツより上 */
+}
+
+#content-wrapper {
+    margin-left: 250px; /* サイドバーの幅分余白を設定 */
+    margin-top: 70px; /* トップバーの高さ分余白を設定 */
+}

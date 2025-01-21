@@ -1,0 +1,19 @@
+<!-- sidebar.html -->
+<div class="sidebar">
+    <div class="sidebar">
+        <p>{{ current_user.name }}</p>
+        <p>ID: {{ current_user.user_id }}</p> <!-- ユーザーIDを表示 -->
+        <!-- その他のサイドバー内容 -->
+    </div>
+    <ul class="nav flex-column">
+        {% if current_user.user_kind == 1 %}
+            <!-- 実行ユーザー用リンク -->
+            <li class="nav-item"><a href="{{ url_for('task_management') }}" class="nav-link">タスク管理画面</a></li>
+        {% else %}
+            <!-- 承認ユーザー用リンク -->
+            <li class="nav-item"><a href="{{ url_for('approval_tasks') }}" class="nav-link">タスク承認画面</a></li>
+        {% endif %}
+        <li class="nav-item"><a href="{{ url_for('logout') }}" class="nav-link text-danger">ログアウト</a></li>
+    </ul>
+    
+</div>

@@ -1,0 +1,32 @@
+/* 承認済みタスクのスタイル */
+.task-completed {
+    opacity: 0.6;
+    text-decoration: line-through;
+}
+
+/* フラッシュメッセージ用のスタイル */
+.alert-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1050;
+    max-width: 300px;
+    padding: 15px;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.alert-container {
+    margin-top: 20px;
+}
+
+.table-success {
+    background-color: #d4edda; /* 緑色 */
+}
+
+.table-secondary {
+    background-color: #e2e3e5; /* 灰色 */
+}

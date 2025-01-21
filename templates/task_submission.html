@@ -1,0 +1,33 @@
+<!-- 既存の task_submission.html を修正 -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>タスク詳細</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">スモールステップ就労支援アプリ</h2>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ task.task_name }}</h5>
+                <p class="card-text">{{ task.task_description }}</p>
+                
+                <!-- 感想入力と完了ボタン -->
+                <form action="{{ url_for('submit_comment', task_id=task.id) }}" method="post">
+                    <div class="form-group">
+                        <label for="comment">感想を入力してください:</label>
+                        <textarea id="comment" name="comment" class="form-control" rows="3" placeholder="感想を記入してください"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">タスクを送信</button>
+                </form>
+                
+                
+                <!-- 戻るボタン -->
+                <a href="{{ url_for('task_management') }}" class="btn btn-secondary mt-3">戻る</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

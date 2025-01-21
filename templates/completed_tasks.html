@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}達成済みタスク{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <!-- フラッシュメッセージ -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="alert-container">
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    {% endwith %}
+    
+    <h2 class="h3 mb-4 text-gray-800">達成済みタスク一覧</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>レベル</th>
+                <th>タスク名</th>
+                <th>感想</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task, progress in tasks %}
+            <tr>
+                <td>{{ task.task_level }}</td>
+                <td>{{ task.task_name }}</td>
+                <td>{{ progress.comment if progress.comment else "感想なし" }}</td>
+                <td>
+                    <a href="{{ url_for('task_detail', task_id=task.id) }}" class="btn btn-primary btn-sm">詳細を見る</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('task_management') }}" class="btn btn-secondary mt-3">タスク管理画面に戻る</a>
+</div>
+{% endblock %}

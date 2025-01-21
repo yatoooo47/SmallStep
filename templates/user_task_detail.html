@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タスク詳細</title>
+    <link href="{{ url_for('static', filename='css/sb-admin-2.min.css') }}" rel="stylesheet">
+</head>
+<body id="page-top">
+    <div class="container mt-5">
+        <h1 class="h3 mb-4 text-gray-800">タスク詳細</h1>
+        <div class="card mb-4">
+            <div class="card-header">タスク詳細</div>
+            <div class="card-body">
+                <p><strong>タスク名:</strong> {{ task.task_name }}</p>
+                <p><strong>説明:</strong> {{ task.task_description }}</p>
+                <p><strong>達成状況:</strong> {{ "達成済み" if progress.is_completed else "未達成" }}</p>
+                <p><strong>感想:</strong> {{ progress.comment if progress.comment else "感想は記載されていません。" }}</p>
+            </div>
+        </div>
+        <a href="{{ url_for('completed_tasks') }}" class="btn btn-secondary mt-3">戻る</a>
+    </div>
+</body>
+</html>

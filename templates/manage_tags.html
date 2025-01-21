@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>タッグ管理</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+</head>
+<body>
+    {% include 'sidebar.html' %}
+    <div class="container mt-5">
+        <h2>タッグ管理</h2>
+
+        {% if pending_requests %}
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>実行者ID</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for request in pending_requests %}
+                <tr>
+                    <td>{{ request.executor_id }}</td>
+                    <td>
+                        <form action="{{ url_for('approve_tag', tag_id=request.id) }}" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-success">承認</button>
+                        </form>
+                        <form action="{{ url_for('reject_tag', tag_id=request.id) }}" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-danger">拒否</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>現在、承認待ちのリクエストはありません。</p>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+###### Requirements without Version Specifiers ######
+alembic
+blinker
+click
+colorama
+Flask
+Flask-Migrate
+Flask-SQLAlchemy
+Flask-WTF
+greenlet
+importlib_metadata
+itsdangerous
+Jinja2
+Mako
+MarkupSafe
+pip
+psycopg2
+psycopg2-binary
+PyMySQL
+setuptools
+SQLAlchemy
+typing_extensions
+Werkzeug
+WTForms
+zipp
+
+#
+###### Requirements with Version Specifiers ######
+#   See https://www.python.org/dev/peps/pep-0440/#version-specifiers
+numpy == 1.26.4   

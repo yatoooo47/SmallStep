@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>タスク承認画面</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>タスク承認画面</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>タスク名</th>
+                    <th>詳細</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in pending_tasks %}
+                <tr>
+                    <td>{{ task.task_name }}</td>
+                    <td>{{ task.task_description }}</td>
+                    <td>
+                        <form action="{{ url_for('approve_task', task_id=task.id) }}" method="post">
+                            <button type="submit" class="btn btn-success">承認</button>
+                        </form>                        
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
